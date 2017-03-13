@@ -25,12 +25,12 @@
         "doctrine/doctrine-cache-bundle": "~1.0",
         "sylius/rbac": "^1.0",
         "sylius/resource-bundle": "^1.0",
-        "symfony/framework-bundle": "^2.8"
+        "symfony/framework-bundle": "^2.8|^3"
     },
     "require-dev": {
         "phpspec/phpspec": "^3.0",
         "doctrine/orm": "^2.4.8,<2.5",
-        "symfony/form": "^2.8|^3",
+        "symfony/form": "^2.8",
         "twig/twig": "^1.0"
     },
     "config": {
