@@ -68,7 +68,8 @@ class AddParentFormSubscriber implements EventSubscriberInterface
         $form = $event->getForm();
         $form->add(
             'parent',
-            sprintf('sylius_%s_choice', $this->type),
+//            sprintf('sylius_%s_choice', $this->type),
+            $this->type,
             ['label' => sprintf('sylius.form.%s.parent', $this->type)]
         );
     }

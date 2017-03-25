@@ -49,7 +49,7 @@ class RoleType extends AbstractResourceType
 //                'label' => 'sylius.form.role.permissions',
 //            ])
             ->addEventSubscriber(new AddCodeFormSubscriber())
-            ->addEventSubscriber(new AddParentFormSubscriber('role'))
+            ->addEventSubscriber(new AddParentFormSubscriber(SecurityRoleChoiceType::class))
         ;
     }
 
