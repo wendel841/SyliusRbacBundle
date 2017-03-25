@@ -14,6 +14,8 @@ namespace Sylius\Bundle\RbacBundle\Form\Type;
 use Sylius\Bundle\RbacBundle\Form\EventSubscriber\AddParentFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -29,23 +31,23 @@ class RoleType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', [
+            ->add('name', TextType::class, [
                 'label' => 'sylius.form.role.name',
             ])
-            ->add('description', 'textarea', [
+            ->add('description', TextareaType::class, [
                 'required' => false,
                 'label' => 'sylius.form.role.description',
             ])
-            ->add('securityRoles', 'sylius_security_role_choice', [
+            ->add('securityRoles', SecurityRoleChoiceType::class, [
                 'required' => false,
                 'label' => 'sylius.form.role.security_roles',
             ])
-            ->add('permissions', 'sylius_permission_choice', [
-                'required' => false,
-                'multiple' => true,
-                'expanded' => true,
-                'label' => 'sylius.form.role.permissions',
-            ])
+//            ->add('permissions', 'sylius_permission_choice', [
+//                'required' => false,
+//                'multiple' => true,
+//                'expanded' => true,
+//                'label' => 'sylius.form.role.permissions',
+//            ])
             ->addEventSubscriber(new AddCodeFormSubscriber())
             ->addEventSubscriber(new AddParentFormSubscriber('role'))
         ;

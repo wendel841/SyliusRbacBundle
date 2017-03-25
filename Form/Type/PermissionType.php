@@ -14,6 +14,7 @@ namespace Sylius\Bundle\RbacBundle\Form\Type;
 use Sylius\Bundle\RbacBundle\Form\EventSubscriber\AddParentFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -29,7 +30,7 @@ class PermissionType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description', 'textarea', [
+            ->add('description', TextareaType::class, [
                 'label' => 'sylius.form.permission.description',
             ])
             ->addEventSubscriber(new AddCodeFormSubscriber())
