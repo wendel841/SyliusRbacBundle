@@ -39,7 +39,7 @@ class RbacAuthorizationChecker implements ResourceBundleAuthorizationCheckerInte
      *
      * @return bool
      */
-    public function isGranted(RequestConfiguration $requestConfiguration, $permission): bool
+    public function isGranted(RequestConfiguration $configuration, string $permission): bool
     {
         if (!$requestConfiguration->hasPermission()) {
             return true;
