@@ -11,6 +11,7 @@
 
 namespace Sylius\Bundle\RbacBundle\Form\Type;
 
+use Core\UserBundle\Form\Type\PermissionChoiceType;
 use Sylius\Bundle\RbacBundle\Form\EventSubscriber\AddParentFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
@@ -42,6 +43,7 @@ class RoleType extends AbstractResourceType
                 'required' => false,
                 'label' => 'sylius.form.role.security_roles',
             ])
+            ->add('permissions', PermissionChoiceType::class)
 //            ->add('permissions', 'sylius_permission_choice', [
 //                'required' => false,
 //                'multiple' => true,
@@ -49,7 +51,7 @@ class RoleType extends AbstractResourceType
 //                'label' => 'sylius.form.role.permissions',
 //            ])
             ->addEventSubscriber(new AddCodeFormSubscriber())
-            ->addEventSubscriber(new AddParentFormSubscriber(SecurityRoleChoiceType::class))
+//            ->addEventSubscriber(new AddParentFormSubscriber(SecurityRoleChoiceType::class))
         ;
     }
 
